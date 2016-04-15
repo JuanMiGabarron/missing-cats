@@ -45,24 +45,25 @@ class TestCat(unittest.TestCase):
             current_station,
             'The movement of the cat is wrong')
 
-        owner.move() # move to visit the third station
+        owner.move()  # move to visit the third station
         self.assertEquals(
             len(owner.visited_stations),
             3,
             'The visited stations has the wrong number of stations')
 
-        owner.move() # move to a random location (the next random station is 1)
+        # move to a random location (the next random station is 1)
+        owner.move()
         next_station = stations_graph.find_station_by_id("1")
-        
+
         self.assertEquals(
             owner.current_station,
             next_station,
             'Owner fails to travel to a random station'
             )
 
-        owner.move() # move to the station 2 or 3
-        next_station.close() # close the station 1
-        owner.move() # Try to move to station 1
+        owner.move()  # move to the station 2 or 3
+        next_station.close()  # close the station 1
+        owner.move()  # Try to move to station 1
 
         self.assertFalse(
             owner.able_to_move,
