@@ -14,7 +14,7 @@ And just run the following command:
 ```
 python app_missing_cats.py
 ```
-This is a console application, you must put an integer greater than 1 when the application ask for it and just wait until the application finishes.
+This is a console application, you must put an integer greater than 1 (the number of owners & cats) when the application ask for it and just wait until the application finishes.
 
 # Prints
 
