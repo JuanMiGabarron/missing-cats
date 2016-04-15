@@ -9,7 +9,7 @@ class TestStationsGraph(unittest.TestCase):
         stations = [
             ["1", "Acton Town"],
             ["2", "Aldgate"],
-            ["3", "Some other"],
+            ["3", "Aldgate East"],
         ]
         connections = [
             ["1", "2"],
@@ -31,3 +31,8 @@ class TestStationsGraph(unittest.TestCase):
             sorted(stations_graph.get_stations_ids()),
             ['1', '2', '3'],
             'The ids of the stations are wrong')
+
+        self.assertEqual(
+            stations_graph.find_station_by_id('2').station_name,
+            'Aldgate',
+            'Station with id 2 has wrong name')
