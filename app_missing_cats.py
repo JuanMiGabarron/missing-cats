@@ -11,7 +11,7 @@ def load_file(filename):
         return json.load(data_file)
 
 
-# get 2 random numbers between start and end and they must be different
+# get 2 random stations, they must be diferent
 def get_random_pair(stations):
     pair1 = random.choice(stations)
     while True:
@@ -30,7 +30,7 @@ def run(num_owners):
     stations = load_file('data/tfl_stations.json')
     connections = load_file('data/tfl_connections.json')
     stations_graph = StationsGraph(stations, connections)
-    stations_graph.get_stations_ids()
+
     list_owners = []
 
     for i in range(N):
@@ -48,13 +48,12 @@ def run(num_owners):
             lambda x: x if not x.cat_found else None,
             list_owners)
         for owner in owner_without_cat:
-            if not owner.cat_found:
-                if owner.is_looking_cat():
-                    cats_found += 1
-                    owner.found_cat()
-                else:
-                    owner.cat.move()
-                    owner.move()
+            if owner.is_looking_cat():
+                cats_found += 1
+                owner.found_cat()
+            else:
+                owner.cat.move()
+                owner.move()
 
     happy_owners = filter(lambda x: x if x.cat_found else None, list_owners)
 

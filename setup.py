@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
- 
+
 setup(
-    name = 'missing-cats',
-    version = '0.1',
-    packages = find_packages(exclude=['tests']),
+    name='missing-cats',
+    version='0.1',
+    packages=find_packages(exclude=['tests']),
 )
